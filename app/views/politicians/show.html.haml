@@ -1,0 +1,17 @@
+.politician
+	%p.name= @politician.first_name + " " + @politician.last_name
+	-if @politician.issues.empty? 
+		%p.issue
+			It appears this politician has not added any issues.
+	-else 
+		-@issues.each do |issue|
+			%p.h2=issue.title
+			.issue
+				-if @politician.stances.where(issue_id:issue.id) 
+					%p It appears this politician has no stances on this issue.
+				-else 
+					%ul
+						-@politician.stances.where(issue_id:issue.id).each do |stance|
+							%li.stance
+								link_to stance.content, stance.citation
+			=link_to 'Add a stance to this issue?', '/'

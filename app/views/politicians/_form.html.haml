@@ -1,0 +1,32 @@
+= form_for(@politician) do |f|
+  - unless @politician.errors.empty?
+    #error_explanation
+      %h2
+        = pluralize(@politician.errors.count, "error")
+        prohibited this politician from being saved:
+      %ul
+        - @politician.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :first_name
+    = f.text_field :first_name
+  .field
+    = f.label :last_name
+    = f.text_field :last_name
+  .field
+    = f.label :education
+    = f.text_field :education
+  .field
+    = f.label :net_worth
+    = f.text_field :net_worth
+  .field
+    = f.label :current_position
+    = f.text_field :current_position
+  .field
+    = f.label :previous_position
+    = f.text_field :previous_position
+  .field
+    = f.label :headshot
+    = f.file_field :headshot
+  .actions
+    = f.submit

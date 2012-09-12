@@ -1,0 +1,13 @@
+= form_for(@issue) do |f|
+  - unless @issue.errors.empty?
+    #error_explanation
+      %h2
+        = pluralize(@issue.errors.count, "error")
+        prohibited this issue from being saved:
+      %ul
+        - @issue.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :title
+    = f.text_field :title
+    = f.submit 

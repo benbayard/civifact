@@ -1,0 +1,37 @@
+#politicians
+  %table
+    %tbody
+      %tr
+        -@politicians.each do |politician|
+          %td
+            =form_tag("/switch", method: "get", remote:true, class:"switch-form") do 
+              =text_field_tag "name",nil, placeholder:"Switch Politician", :data => {:provide => "typeahead", :source => @all_politician_names} 
+              =hidden_field_tag :which_switch, cycle(1,2)
+              =submit_tag "Switch"
+          %td.spacer="&nbsp;".html_safe
+      %tr
+        -@politicians.each do |politician|
+          %td.header-striped=image_tag politician.headshot.url, class:"headshot"
+          %td.spacer="&nbsp;".html_safe
+      %tr
+        -@politicians.each do |politician|
+          %td.header-striped
+            %h1=politician.name
+          %td.spacer="&nbsp;".html_safe
+      -@issues.each do |issue|
+        %tr
+          -@politicians.each do |politician|
+            %td
+              %ul.issue.unstyled
+                %lh=issue.title
+                -if politician.issues.include?(issue)
+                  -politician.stances.with_issue(issue.id).each do |stance|
+                    %li
+                      =stance.content
+                      -@counter += 1
+                      %sup=link_to "[#{@counter}]", stance.citation
+                -else
+                  %p It appears this politician has no stances on this issue
+              ="<p id='stance-#{politician.id}-#{issue.id}'></dd>".html_safe
+              =link_to "Add a stance to this issue.", "/stances/new/#{politician.id}/issue/#{issue.id}", class:"stance-#{politician.id}-#{issue.id} align-bottom", remote:true
+            %td.spacer="&nbsp;".html_safe

@@ -1,0 +1,7 @@
+=form_for @stance, :remote => true do |f|
+  =f.text_field :content, placeholder:"The Stance"
+  =f.text_field :citation, placeholder: "The URL of the Citation"
+  =f.text_field :citation_date, placeholder: "The Date of the Citation", :value => Date.today.strftime("%d-%m-%Y")
+  =f.hidden_field :politician_id, value: @for_politician.id
+  =f.hidden_field :issue_id, value: @for_issue.id
+  =f.submit

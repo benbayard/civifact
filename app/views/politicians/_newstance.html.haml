@@ -1,0 +1,7 @@
+.new-stance 
+	=form_for Stance.new do |f|
+		=f.text_field :content, placeholder:"The Stance"
+		=f.text_field :citation, placeholder: "The URL of the Citation"
+		=f.text_field :citation_date, placeholder: "The Date of the Citation", :value => @model_instance.some_date.strftime("%d-%m-%Y")
+		=f.hidden_field :politician_id politician.id
+		=f.hidden_field :issue_id issue.id

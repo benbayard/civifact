@@ -1,0 +1,22 @@
+#politicians
+  -@politicians.each do |politician|
+    .span6.politician
+      =image_tag politician.headshot.url :medium
+      %h1.name
+        =politician.name
+
+      %dl.issue-list
+        -@issues.each do |issue|
+          %dt
+            =issue.title
+            -if politician.issues.include?(issue)
+              -politician.stances.with_issue(issue.id).each do |stance|
+                %dd
+                  =stance.content
+                  -@counter += 1
+                  %sup=link_to "[#{@counter}]", stance.citation
+            -else
+              %dd It appears this politician has no stances on this issue.
+            ="<dd id='stance-#{politician.id}-#{issue.id}'></dd>".html_safe
+            %dd
+              =link_to "Add a stance to this issue.", "/stances/new/#{politician.id}/issue/#{issue.id}", class:"stance-#{politician.id}-#{issue.id}", remote:true

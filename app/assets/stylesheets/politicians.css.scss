@@ -1,0 +1,75 @@
+// Place all the styles related to the Politicians controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#politicians {
+	table {
+		border-collapse:collapse;
+	}
+	td {
+		width:570px;
+		position:relative;
+		background-color:#82959D;
+	}
+	tr:first-child td {
+		background-color:white;
+	}
+	tr > td:first-child {
+		margin-right:30px;
+	}
+	tr > td:last-child {
+		display:none;
+	}
+	tr {
+		border-left:1px solid #ccc;
+		border-right:1px solid #ccc;
+	}
+	tr:last-child {
+		border-bottom:1px solid #ccc;
+	}
+	tr:first-child {
+		border:none;
+	}
+	td.spacer {
+		width:30px;
+		background-color:white;
+		border:none;
+	}
+	lh {
+		font-weight:bold;
+		padding-top:10px;
+		padding-bottom:10px;
+	}
+	li {
+		padding:5px 10px 5px 5px;
+	}
+	.align-bottom {
+		position:absolute;
+		bottom:0px;
+		padding-left:10px;
+	}
+	ul {
+		padding:10px;
+	}
+	img.headshot {
+		display:block;
+		margin:0px auto;
+		width:570px;
+		height:460px;
+	}
+	.switch-form {
+		text-align:center;
+		height:3em;
+		input {
+			vertical-align:middle;
+		}
+	}
+	.header-striped {
+		background-image:url(bg_dark_blue.png);
+		text-align:center;
+		h1 {
+			color:white;
+			font-weight:bold;
+			text-shadow: .1em 0 .1em rgba(0,0,0,.5)
+		}
+	}
+}
