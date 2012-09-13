@@ -6,6 +6,9 @@ gem 'rails', '3.1.0'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 group :development, :test do
 	gem 'sqlite3'
+	gem 'factory_girl_rails'
+	gem 'rspec-rails'
+	gem 'shoulda'
 end
 group :production do 
 	gem 'mysql2'
@@ -14,14 +17,12 @@ end
 
 gem "haml"
 gem "haml-rails"
-gem 'factory_girl_rails'
-gem 'rspec-rails'
+
 gem 'capybara' 
 gem 'devise'
 gem "cancan"
-gem 'shoulda'
+
 gem 'paperclip'
-gem 'paperclipftp'
 gem 'formtastic'
 
 
@@ -41,7 +42,7 @@ gem 'rmagick'
 gem 'jquery-rails'
 
 # Use unicorn as the web server
-# gem 'unicorn'
+gem 'passenger'
 
 # Deploy with Capistrano
 # gem 'capistrano'
