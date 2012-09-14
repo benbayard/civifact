@@ -1,7 +1,6 @@
 class Politician < ActiveRecord::Base
 	attr_accessible :headshot, :first_name, :last_name, :net_worth, :current_position, :previous_position
-  	has_attached_file :headshot,
-                    :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  	has_attached_file :headshot
     has_many :stances
     has_many :contributors
     has_many :issues, :through => :stances

@@ -37,8 +37,6 @@ group :assets do
   gem "rails-boilerplate"
 end
 
-
-gem 'rmagick'
 gem 'jquery-rails'
 
 # Use unicorn as the web server
