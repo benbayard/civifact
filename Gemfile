@@ -19,6 +19,7 @@ gem "haml-rails"
 gem 'capybara'
 gem 'devise'
 gem "cancan"
+gem 'shoulda'
 
 gem 'paperclip'
 gem 'formtastic'
