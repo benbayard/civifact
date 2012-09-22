@@ -8,17 +8,15 @@ group :development, :test do
 	gem 'sqlite3'
 	gem 'factory_girl_rails'
 	gem 'rspec-rails'
-	gem 'shoulda'
 end
-group :production do 
-	gem 'mysql2'
-	
-end
+
+gem 'mysql2'
+
 
 gem "haml"
 gem "haml-rails"
 
-gem 'capybara' 
+gem 'capybara'
 gem 'devise'
 gem "cancan"
 
@@ -47,4 +45,3 @@ gem 'passenger'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
-
